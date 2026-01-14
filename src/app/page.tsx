@@ -7,16 +7,25 @@ import Experience from "@/components/Experiencia";
 import Projetos from "@/components/Projetos";
 import Contato from "@/components/Contato";
 import Footer from "@/components/Footer";
+import ScrollAnimation from "@/components/ScrollAnimation";
 
 export default function Home() {
   return (
     <>
       <Header />
       <Hero />
-      <Skills />
-      <Experience />
-      <Projetos />
-      <Contato />
+      <ScrollAnimation>
+        <Skills />
+      </ScrollAnimation>
+      <ScrollAnimation>
+        <Experience />
+      </ScrollAnimation>
+      <ScrollAnimation>
+        <Projetos />
+      </ScrollAnimation>
+      <ScrollAnimation>
+        <Contato />
+      </ScrollAnimation>
       <Footer />
     </>
   );

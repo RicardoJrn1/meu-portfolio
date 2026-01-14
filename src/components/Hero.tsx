@@ -2,6 +2,16 @@ import React from "react";
 import { SiGithub, SiLinkedin } from "react-icons/si";
 
 export default function Hero() {
+  const handleScroll = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
+    e.preventDefault();
+    const href = e.currentTarget.href;
+    const targetId = href.replace(/.*\#/, "");
+    const elem = document.getElementById(targetId);
+    elem?.scrollIntoView({
+      behavior: "smooth",
+    });
+  };
+
   return (
     <div className="relative isolate min-h-screen flex items-center justify-center overflow-hidden transition-colors duration-300">
 
@@ -35,12 +45,14 @@ export default function Hero() {
           <div className="flex items-center gap-6 animate-in fade-in-up duration-700 delay-200">
             <a
               href="#projetos"
+              onClick={handleScroll}
               className="rounded-full bg-stone-900 dark:bg-stone-100 px-6 py-3 text-sm font-semibold text-white dark:text-stone-900 shadow-sm hover:bg-stone-700 dark:hover:bg-stone-200 transition-all hover:scale-105"
             >
               Ver Projetos
             </a>
             <a
               href="#contato"
+              onClick={handleScroll}
               className="text-sm font-semibold leading-6 text-stone-900 dark:text-stone-100 hover:text-sky-600 dark:hover:text-sky-400 transition-colors"
             >
               Fale Comigo <span aria-hidden="true">→</span>
