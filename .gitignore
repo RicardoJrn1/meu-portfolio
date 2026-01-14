@@ -1,4 +1,13 @@
+# Dependências
 node_modules/
+
+# Build e cache do Next.js
 .next/
+
+# Arquivos de ambiente
 .env
+
+# Logs e sistema
+*.log
 .DS_Store
+
