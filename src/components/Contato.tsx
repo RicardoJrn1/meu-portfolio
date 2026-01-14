@@ -3,8 +3,10 @@
 import React, { useState } from "react";
 import { SiGithub, SiLinkedin } from "react-icons/si";
 import { FaEnvelope, FaMapMarkerAlt, FaPaperPlane } from "react-icons/fa";
+import { useLanguage } from "@/components/Linguagem";
 
 export default function Contato() {
+  const { t } = useLanguage();
   const [status, setStatus] = useState<"idle" | "sending" | "success" | "error">(
     "idle"
   );
@@ -39,18 +41,17 @@ export default function Contato() {
 
       if (json?.success) {
         setStatus("success");
-        setMessage("Mensagem enviada com sucesso!");
+        setMessage(t.contact.form.success);
         form.reset();
       } else {
         setStatus("error");
         setMessage(
-          json?.message ||
-            "Não consegui enviar agora. Tenta de novo em alguns segundos."
+          json?.message || t.contact.form.error
         );
       }
     } catch (err) {
       setStatus("error");
-      setMessage("Falha de conexão. Verifica sua internet e tenta novamente.");
+      setMessage(t.contact.form.error);
     }
   }
 
@@ -62,15 +63,13 @@ export default function Contato() {
           <div className="space-y-8">
             <div>
               <div className="inline-block relative rounded-full px-3 py-1 text-sm leading-6 text-stone-600 dark:text-stone-400 ring-1 ring-stone-900/10 dark:ring-stone-100/10 hover:ring-stone-900/20 dark:hover:ring-stone-100/20 transition-all mb-4">
-                Contato
+                {t.contact.badge}
               </div>
               <h2 className="text-4xl sm:text-5xl font-bold text-stone-900 dark:text-stone-100">
-                Vamos trabalhar juntos?
+                {t.contact.title}
               </h2>
               <p className="text-lg text-stone-600 dark:text-stone-300 mt-6 leading-relaxed">
-                Estou sempre aberto a novas oportunidades e desafios. Se você tem
-                um projeto em mente ou apenas quer trocar uma ideia, sinta-se à
-                vontade para entrar em contato!
+                {t.contact.description}
               </p>
             </div>
 
@@ -81,7 +80,7 @@ export default function Contato() {
                 </div>
                 <div>
                   <p className="text-sm font-medium text-stone-500 dark:text-stone-400">
-                    Email
+                    {t.contact.email}
                   </p>
                   <a
                     href="mailto:ricardo727jrn@gmail.com"
@@ -98,7 +97,7 @@ export default function Contato() {
                 </div>
                 <div>
                   <p className="text-sm font-medium text-stone-500 dark:text-stone-400">
-                    Localização
+                    {t.contact.location}
                   </p>
                   <p className="text-base font-semibold text-stone-900 dark:text-stone-100">
                     Belém, Pará - Brasil
@@ -136,7 +135,7 @@ export default function Contato() {
                     htmlFor="name"
                     className="text-sm font-medium text-stone-700 dark:text-stone-300"
                   >
-                    Nome
+                    {t.contact.form.name}
                   </label>
                   <input
                     type="text"
@@ -144,7 +143,7 @@ export default function Contato() {
                     name="name"
                     required
                     className="w-full rounded-xl border border-stone-200 dark:border-stone-700 bg-white dark:bg-stone-800 px-4 py-3 text-stone-900 dark:text-stone-100 focus:border-sky-500 focus:ring-sky-500 focus:outline-none transition-all"
-                    placeholder="Seu nome"
+                    placeholder={t.contact.form.name_placeholder}
                     disabled={status === "sending"}
                   />
                 </div>
@@ -154,7 +153,7 @@ export default function Contato() {
                     htmlFor="email"
                     className="text-sm font-medium text-stone-700 dark:text-stone-300"
                   >
-                    Email
+                    {t.contact.form.email}
                   </label>
                   <input
                     type="email"
@@ -162,7 +161,7 @@ export default function Contato() {
                     name="email"
                     required
                     className="w-full rounded-xl border border-stone-200 dark:border-stone-700 bg-white dark:bg-stone-800 px-4 py-3 text-stone-900 dark:text-stone-100 focus:border-sky-500 focus:ring-sky-500 focus:outline-none transition-all"
-                    placeholder="seu@email.com"
+                    placeholder={t.contact.form.email_placeholder}
                     disabled={status === "sending"}
                   />
                 </div>
@@ -173,7 +172,7 @@ export default function Contato() {
                   htmlFor="subject"
                   className="text-sm font-medium text-stone-700 dark:text-stone-300"
                 >
-                  Assunto
+                  {t.contact.form.subject}
                 </label>
                 <input
                   type="text"
@@ -181,7 +180,7 @@ export default function Contato() {
                   name="assunto"
                   required
                   className="w-full rounded-xl border border-stone-200 dark:border-stone-700 bg-white dark:bg-stone-800 px-4 py-3 text-stone-900 dark:text-stone-100 focus:border-sky-500 focus:ring-sky-500 focus:outline-none transition-all"
-                  placeholder="Sobre o que vamos conversar?"
+                  placeholder={t.contact.form.subject_placeholder}
                   disabled={status === "sending"}
                 />
               </div>
@@ -191,7 +190,7 @@ export default function Contato() {
                   htmlFor="message"
                   className="text-sm font-medium text-stone-700 dark:text-stone-300"
                 >
-                  Mensagem
+                  {t.contact.form.message}
                 </label>
                 <textarea
                   id="message"
@@ -199,7 +198,7 @@ export default function Contato() {
                   rows={4}
                   required
                   className="w-full rounded-xl border border-stone-200 dark:border-stone-700 bg-white dark:bg-stone-800 px-4 py-3 text-stone-900 dark:text-stone-100 focus:border-sky-500 focus:ring-sky-500 focus:outline-none transition-all resize-none"
-                  placeholder="Sua mensagem..."
+                  placeholder={t.contact.form.message_placeholder}
                   disabled={status === "sending"}
                 />
               </div>
@@ -225,14 +224,13 @@ export default function Contato() {
                 disabled={status === "sending"}
                 className="w-full inline-flex items-center justify-center gap-2 rounded-xl bg-stone-900 dark:bg-stone-100 px-6 py-4 text-sm font-semibold text-white dark:text-stone-900 shadow-sm hover:bg-stone-700 dark:hover:bg-stone-200 transition-all hover:scale-[1.02] disabled:opacity-60 disabled:hover:scale-100"
               >
-                {status === "sending" ? "Enviando..." : "Enviar Mensagem"}
+                {status === "sending" ? t.contact.form.sending : t.contact.form.btn}
                 <FaPaperPlane className="h-4 w-4" />
               </button>
             </form>
 
             <p className="mt-4 text-xs text-stone-500 dark:text-stone-400">
-              Ao enviar, você concorda em compartilhar seus dados apenas para
-              contato sobre este assunto.
+              {t.contact.form.disclaimer}
             </p>
           </div>
         </div>

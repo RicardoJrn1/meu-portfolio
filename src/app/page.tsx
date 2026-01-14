@@ -8,10 +8,11 @@ import Projetos from "@/components/Projetos";
 import Contato from "@/components/Contato";
 import Footer from "@/components/Footer";
 import ScrollAnimation from "@/components/ScrollAnimation";
+import { LanguageProvider } from "@/components/Linguagem";
 
 export default function Home() {
   return (
-    <>
+    <LanguageProvider>
       <Header />
       <Hero />
       <ScrollAnimation>
@@ -27,6 +28,6 @@ export default function Home() {
         <Contato />
       </ScrollAnimation>
       <Footer />
-    </>
+    </LanguageProvider>
   );
 }

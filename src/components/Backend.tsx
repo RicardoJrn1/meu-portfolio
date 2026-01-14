@@ -8,6 +8,7 @@ import {
   SiGithub } from "react-icons/si";
 import { FaJava } from "react-icons/fa6";
 import type { IconType } from "react-icons";
+import { useLanguage } from "@/components/Linguagem";
 
 type Skill = {
   name: string;
@@ -42,10 +43,11 @@ const BACKEND_SKILLS: Skill[] = [
 ];
 
 export default function Backend() {
+    const { t } = useLanguage();
     return (
         <div className="bg-white/40 dark:bg-stone-900/40 backdrop-blur-md rounded-3xl p-8 border border-stone-200/50 dark:border-stone-700/50 shadow-sm">
             <h3 className="text-2xl font-bold text-stone-800 dark:text-stone-100 mb-6 flex items-center gap-2">
-              Backend & Ferramentas de Desenvolvimento
+              {t.skills.backend}
             </h3>
             <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-7 gap-6">
               {BACKEND_SKILLS.map((skill) => (

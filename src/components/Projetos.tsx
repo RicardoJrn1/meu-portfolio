@@ -2,10 +2,10 @@ import React from "react";
 import Image from "next/image";
 import { SiGithub } from "react-icons/si";
 import { FaExternalLinkAlt } from "react-icons/fa";
+import { useLanguage } from "@/components/Linguagem";
 
 interface Project {
   title: string;
-  description: string;
   tags: string[];
   links: {
     github?: string;
@@ -18,8 +18,6 @@ interface Project {
 const PROJECTS: Project[] = [
   {
     title: "Redimaq",
-    description:
-      "Uma empresa resposavel por venda e conserto de moveis e equipamentos de escritorio de alta qualidade.",
     tags: ["Next.js", "TypeScript", "Tailwind"],
     links: {
       github: "https://github.com/RicardoJrn1/redimaq",
@@ -30,8 +28,6 @@ const PROJECTS: Project[] = [
   },
   {
     title: "Assessoria 74",
-    description:
-      "Um site de uma empresa que faz assessoria empresarial para pequenas e medias empresas.",
     tags: ["Next.js", "TypeScript", "Tailwind"],
     links: {
       github: "https://github.com/RicardoJrn1/assessoria-74",
@@ -42,8 +38,6 @@ const PROJECTS: Project[] = [
   },
   {
     title: "ShapeZap IA",
-    description:
-      "Um site que oferece um serviço para a contagem de calorias utilizando IA para reconhecimento de imagens.",
     tags: ["Next.js", "TypeScript", "Tailwind"],
     links: {
       github: "https://github.com/RicardoJrn1/shapezap",
@@ -54,8 +48,6 @@ const PROJECTS: Project[] = [
   },
   {
     title: "UsiSol",
-    description:
-      "Uma empresa que oferece soluções em energia solar para residências e empresas.",
     tags: ["Next.js", "TypeScript", "Tailwind"],
     links: {
       github: "https://github.com/RicardoJrn1/UsiSol",
@@ -67,17 +59,18 @@ const PROJECTS: Project[] = [
 ];
 
 export default function Projetos() {
+  const { t } = useLanguage();
   return (
     <div id="projetos" className="scroll-target mt-20">
       <div className="text-center mb-16">
         <p className="inline-block relative rounded-full px-3 py-1 text-sm leading-6 text-stone-600 dark:text-stone-400 ring-1 ring-stone-900/10 dark:ring-stone-100/10 hover:ring-stone-900/20 dark:hover:ring-stone-100/20 transition-all">
-          Meu Portfólio
+          {t.projects.badge}
         </p>
         <h2 className="text-4xl sm:text-5xl font-bold text-stone-900 dark:text-stone-100 mt-6">
-          Projetos em Destaque
+          {t.projects.title}
         </h2>
         <p className="max-w-2xl mx-auto text-lg text-stone-600 dark:text-stone-300 mt-4">
-          Aqui estão alguns dos projetos que desenvolvi, demonstrando minhas habilidades em resolver problemas reais.
+          {t.projects.description}
         </p>
       </div>
 
@@ -115,7 +108,7 @@ export default function Projetos() {
                       target="_blank"
                       rel="noopener noreferrer"
                       className="text-stone-500 hover:text-stone-900 dark:hover:text-stone-100 transition-colors hover:scale-110"
-                      title="Ver Código"
+                      title={t.projects.view_code}
                     >
                       <SiGithub className="w-6 h-6" />
                     </a>
@@ -126,7 +119,7 @@ export default function Projetos() {
                       target="_blank"
                       rel="noopener noreferrer"
                       className="text-stone-500 hover:text-stone-900 dark:hover:text-stone-100 transition-colors hover:scale-110"
-                      title="Ver Demo"
+                      title={t.projects.view_demo}
                     >
                       <FaExternalLinkAlt className="w-5 h-5" />
                     </a>
@@ -135,7 +128,7 @@ export default function Projetos() {
               </div>
 
               <p className="text-stone-600 dark:text-stone-300 mb-6 leading-relaxed flex-1">
-                {project.description}
+                {t.projects.items[index]}
               </p>
 
               <div className="flex flex-wrap gap-2 mt-auto">
