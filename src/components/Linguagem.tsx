@@ -31,7 +31,7 @@ export const translations = {
       professional: "Profissional",
       academic: "Acadêmica",
       current: "Atualmente",
-      years: "3 anos",
+      years: "Maio 2025 - Setembro 2025",
       completed: "Concluído",
       jobs: {
         nobuggy: {
@@ -113,7 +113,7 @@ export const translations = {
       professional: "Professional",
       academic: "Academic",
       current: "Currently",
-      years: "3 years",
+      years: "May 2025 - September 2025",
       completed: "Completed",
       jobs: {
         nobuggy: {

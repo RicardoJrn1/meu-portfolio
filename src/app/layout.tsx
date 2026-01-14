@@ -53,6 +53,9 @@ export const metadata: Metadata = {
     "ricardo alves",
     "portfólio",
   ],
+  icons: {
+    icon: "/icon-note.png",
+  },
 };
 
 export const viewport = {

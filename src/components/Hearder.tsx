@@ -9,6 +9,22 @@ import { useLanguage } from "@/components/Linguagem";
 
 type Lang = "pt" | "en";
 
+const FlagBR = ({ className = "w-5 h-3.5" }: { className?: string }) => (
+  <svg viewBox="0 0 72 50" className={`rounded-[2px] object-cover ${className}`} xmlns="http://www.w3.org/2000/svg">
+    <rect width="72" height="50" fill="#009c3b" />
+    <polygon points="36,4 68,25 36,46 4,25" fill="#ffdf00" />
+    <circle cx="36" cy="25" r="13" fill="#002776" />
+  </svg>
+);
+
+const FlagUS = ({ className = "w-5 h-3.5" }: { className?: string }) => (
+  <svg viewBox="0 0 72 50" className={`rounded-[2px] object-cover ${className}`} xmlns="http://www.w3.org/2000/svg">
+    <rect width="72" height="50" fill="#b22234" />
+    <path d="M0 4h72M0 12h72M0 21h72M0 29h72M0 38h72M0 46h72" stroke="#fff" strokeWidth="4" />
+    <rect width="32" height="26" fill="#3c3b6e" />
+  </svg>
+);
+
 function LanguageSwitcher({
   language,
   setLanguage,
@@ -75,9 +91,9 @@ function LanguageSwitcher({
         aria-haspopup="menu"
         aria-expanded={open}
       >
-        <span className="text-lg leading-none">
-          {language === "pt" ? "🇧🇷" : "🇺🇸"}
-        </span>
+        <div className="flex items-center justify-center">
+          {language === "pt" ? <FlagBR className="w-6 h-4" /> : <FlagUS className="w-6 h-4" />}
+        </div>
 
         {isDesktop && (
           <span className="text-sm font-semibold text-stone-700 dark:text-stone-200">
@@ -111,7 +127,7 @@ function LanguageSwitcher({
               role="menuitem"
             >
               <span className="flex items-center gap-3">
-                <span className="text-lg">🇧🇷</span>
+                <FlagBR />
                 <span>{isDesktop ? "Português (Brasil)" : "PT-BR"}</span>
               </span>
               {language === "pt" && <FiCheck className="h-4 w-4 text-sky-500" />}
@@ -124,7 +140,7 @@ function LanguageSwitcher({
               role="menuitem"
             >
               <span className="flex items-center gap-3">
-                <span className="text-lg">🇺🇸</span>
+                <FlagUS />
                 <span>{isDesktop ? "English (US)" : "EN-US"}</span>
               </span>
               {language === "en" && <FiCheck className="h-4 w-4 text-sky-500" />}
