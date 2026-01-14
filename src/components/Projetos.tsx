@@ -1,4 +1,5 @@
 import React from "react";
+import Image from "next/image";
 import { SiGithub } from "react-icons/si";
 import { FaExternalLinkAlt } from "react-icons/fa";
 
@@ -89,10 +90,11 @@ export default function Projetos() {
             {/* Área da Imagem/Gradiente */}
             <div className="h-48 w-full relative overflow-hidden">
               {project.image ? (
-                <img
+                <Image
                   src={project.image}
                   alt={project.title}
-                  className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
+                  fill
+                  className="object-cover transition-transform duration-500 group-hover:scale-110"
                 />
               ) : (
                 <div className={`h-full w-full bg-gradient-to-br ${project.gradient} opacity-80 group-hover:opacity-100 transition-opacity duration-500`} />
