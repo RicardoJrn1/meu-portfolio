@@ -15,6 +15,7 @@ export const translations = {
     hero: {
       badge: "Sobre mim",
       subtitle: "Desenvolvedor Web Full Stack",
+      welcome_user: "Olá, {name}. Fique à vontade para conhecer um pouco do meu trabalho.",
       description: "Sou desenvolvedor web full-stack com foco em front-end, com 3 anos de experiência na área de tecnologia. Trabalhei no Imazon, onde atuei no desenvolvimento de sistemas administrativos. Além disso, sou freelancer na empresa NoBuggy, especializada em soluções tecnológicas completas.",
       cta_projects: "Ver Projetos",
       cta_contact: "Fale Comigo",
@@ -83,6 +84,13 @@ export const translations = {
         disclaimer: "Ao enviar, você concorda em compartilhar seus dados apenas para contato sobre este assunto."
       }
     },
+    modal: {
+      title: "Olá! Como posso te chamar?",
+      description: "Gostaria de personalizar sua experiência no meu portfólio.",
+      placeholder: "Digite seu nome...",
+      confirm: "Confirmar",
+      skip: "Pular"
+    },
     footer: {
       rights: "Todos os direitos reservados."
     }
@@ -97,6 +105,7 @@ export const translations = {
     hero: {
       badge: "About Me",
       subtitle: "Full Stack Web Developer",
+      welcome_user: "Hello, {name}. Feel free to explore my work.",
       description: "I am a full-stack web developer focused on front-end, with 3 years of experience in the tech industry. I worked at Imazon, developing administrative systems. Additionally, I am a freelancer at NoBuggy, specializing in complete technological solutions.",
       cta_projects: "View Projects",
       cta_contact: "Contact Me",
@@ -164,6 +173,13 @@ export const translations = {
         error: "An error occurred while sending.",
         disclaimer: "By sending, you agree to share your data only for contact regarding this subject."
       }
+    },
+    modal: {
+      title: "Hello! What should I call you?",
+      description: "I'd like to personalize your experience in my portfolio.",
+      placeholder: "Type your name...",
+      confirm: "Confirm",
+      skip: "Skip"
     },
     footer: {
       rights: "All rights reserved."

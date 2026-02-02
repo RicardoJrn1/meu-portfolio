@@ -1,5 +1,6 @@
 import React from "react";
 import { FaBriefcase, FaGraduationCap, FaCalendarAlt } from "react-icons/fa";
+import { motion } from "framer-motion";
 import { useLanguage } from "@/components/Linguagem";
 
 export default function Experience() {
@@ -26,8 +27,20 @@ export default function Experience() {
           </div>
 
           {/* Item 1 */}
-          <div className="relative pl-8 border-l-2 border-stone-200 dark:border-stone-700 space-y-2">
-            <div className="absolute -left-[9px] top-0 h-4 w-4 rounded-full bg-sky-600 ring-4 ring-white dark:ring-stone-900" />
+          <div className="relative pl-8 space-y-2">
+            <motion.div
+              initial={{ height: 0 }}
+              whileInView={{ height: "100%" }}
+              viewport={{ once: true }}
+              transition={{ duration: 1, ease: "circOut" }}
+              className="absolute left-0 top-0 w-[2px] bg-stone-200 dark:bg-stone-700"
+            />
+            <motion.div
+              initial={{ scale: 0 }}
+              whileInView={{ scale: 1 }}
+              viewport={{ once: true }}
+              className="absolute -left-[9px] top-0 h-4 w-4 rounded-full bg-sky-600 ring-4 ring-white dark:ring-stone-900 z-10"
+            />
             <h4 className="text-lg font-bold text-stone-800 dark:text-stone-100">
               {t.experience.jobs.nobuggy.role}
             </h4>
@@ -42,8 +55,20 @@ export default function Experience() {
           </div>
 
           {/* Item 2 */}
-          <div className="relative pl-8 border-l-2 border-stone-200 dark:border-stone-700 space-y-2">
-            <div className="absolute -left-[9px] top-0 h-4 w-4 rounded-full bg-stone-300 dark:bg-stone-600 ring-4 ring-white dark:ring-stone-900" />
+          <div className="relative pl-8 space-y-2">
+            <motion.div
+              initial={{ height: 0 }}
+              whileInView={{ height: "100%" }}
+              viewport={{ once: true }}
+              transition={{ duration: 1, ease: "circOut" }}
+              className="absolute left-0 top-0 w-[2px] bg-stone-200 dark:bg-stone-700"
+            />
+            <motion.div
+              initial={{ scale: 0 }}
+              whileInView={{ scale: 1 }}
+              viewport={{ once: true }}
+              className="absolute -left-[9px] top-0 h-4 w-4 rounded-full bg-stone-300 dark:bg-stone-600 ring-4 ring-white dark:ring-stone-900 z-10"
+            />
             <h4 className="text-lg font-bold text-stone-800 dark:text-stone-100">
               {t.experience.jobs.imazon.role}
             </h4>
@@ -68,8 +93,20 @@ export default function Experience() {
           </div>
 
           {/* Item 1 - Exemplo (Edite conforme necessário) */}
-          <div className="relative pl-8 border-l-2 border-stone-200 dark:border-stone-700 space-y-2">
-            <div className="absolute -left-[9px] top-0 h-4 w-4 rounded-full bg-sky-600 ring-4 ring-white dark:ring-stone-900" />
+          <div className="relative pl-8 space-y-2">
+            <motion.div
+              initial={{ height: 0 }}
+              whileInView={{ height: "100%" }}
+              viewport={{ once: true }}
+              transition={{ duration: 1, ease: "circOut" }}
+              className="absolute left-0 top-0 w-[2px] bg-stone-200 dark:bg-stone-700"
+            />
+            <motion.div
+              initial={{ scale: 0 }}
+              whileInView={{ scale: 1 }}
+              viewport={{ once: true }}
+              className="absolute -left-[9px] top-0 h-4 w-4 rounded-full bg-sky-600 ring-4 ring-white dark:ring-stone-900 z-10"
+            />
             <h4 className="text-lg font-bold text-stone-800 dark:text-stone-100">
               {t.experience.jobs.university.role}
             </h4>

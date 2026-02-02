@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import SmoothScroll from "@/components/SmoothScroll";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -87,6 +88,7 @@ export default function RootLayout({
       <body 
       className={`${geistSans.variable} ${geistMono.variable} antialiased bg-background-main text-foreground`}
       >
+       <SmoothScroll>
         <div className="relative min-h-dvh overflow-hidden">
           {/* Gradiente sutil sobre o fundo principal */}
           <div
@@ -97,6 +99,16 @@ export default function RootLayout({
                 radial-gradient(circle at 0% 0%, var(--background-soft) 0%, transparent 50%),
                 radial-gradient(circle at 100% 100%, var(--background-soft) 0%, transparent 50%)
               `,
+            }}
+          />
+
+          {/* Textura de Ruído (Noise) */}
+          <div
+            className="pointer-events-none absolute inset-0 z-0 opacity-[0.03] mix-blend-overlay"
+            style={{
+              backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")`,
+              backgroundRepeat: "repeat",
+              backgroundSize: "128px",
             }}
           />
 
@@ -146,6 +158,7 @@ export default function RootLayout({
           {/* Conteúdo sempre acima */}
           <div className="relative z-10">{children}</div>
         </div>
+       </SmoothScroll>
 
         <script
           type="application/ld+json"

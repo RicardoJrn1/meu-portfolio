@@ -1,12 +1,22 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { SiGithub, SiLinkedin } from "react-icons/si";
 import { FaEnvelope, FaMapMarkerAlt, FaPaperPlane } from "react-icons/fa";
 import { useLanguage } from "@/components/Linguagem";
+import { useUser } from "@/components/UserContext";
 
 export default function Contato() {
   const { t } = useLanguage();
+  const { userName } = useUser();
+  const nameInputRef = useRef<HTMLInputElement>(null);
+
+  useEffect(() => {
+    if (userName && nameInputRef.current) {
+      nameInputRef.current.value = userName;
+    }
+  }, [userName]);
+
   const [status, setStatus] = useState<"idle" | "sending" | "success" | "error">(
     "idle"
   );
@@ -142,6 +152,7 @@ export default function Contato() {
                     id="name"
                     name="name"
                     required
+                    ref={nameInputRef}
                     className="w-full rounded-xl border border-stone-200 dark:border-stone-700 bg-white dark:bg-stone-800 px-4 py-3 text-stone-900 dark:text-stone-100 focus:border-sky-500 focus:ring-sky-500 focus:outline-none transition-all"
                     placeholder={t.contact.form.name_placeholder}
                     disabled={status === "sending"}

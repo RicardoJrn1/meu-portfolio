@@ -2,9 +2,11 @@ import React from "react";
 import { SiGithub, SiLinkedin } from "react-icons/si";
 import { useLanguage } from "@/components/Linguagem";
 import Typewriter from "@/components/Typewriter";
+import { useUser } from "@/components/UserContext";
 
 export default function Hero() {
   const { t, language } = useLanguage();
+  const { userName } = useUser();
 
   const handleScroll = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
     e.preventDefault();
@@ -19,11 +21,22 @@ export default function Hero() {
   return (
     <div className="relative isolate min-h-screen flex items-center justify-center overflow-hidden transition-colors duration-300">
 
-      <div className="mx-auto max-w-4xl px-6 py-20 lg:px-8">
+      <div className="mx-auto max-w-4xl px-6 py-20 lg:px-8 mt-10">
         <section
           id="inicio"
           className="flex flex-col items-center text-center gap-8"
         >
+          {userName && (
+            <div className="flex flex-col items-center gap-2 animate-in fade-in slide-in-from-bottom-4 duration-700">
+              <p className="text-3xl font-bold text-stone-800 dark:text-stone-100">
+                {t.hero.welcome_user.replace("{name}", userName).split(".")[0]}
+              </p>
+              <p className="text-lg text-stone-600 dark:text-stone-400">
+                {t.hero.welcome_user.replace("{name}", userName).split(".").slice(1).join(".").trim()}
+              </p>
+            </div>
+          )}
+          
           <div className="space-y-6 animate-in fade-in-up duration-700">
             <div className="text-center mb-6">
               <div className="inline-block relative rounded-full px-3 py-1 text-sm leading-6 text-stone-600 dark:text-stone-400 ring-1 ring-stone-900/10 dark:ring-stone-100/10 hover:ring-stone-900/20 dark:hover:ring-stone-100/20 transition-all">
@@ -32,11 +45,12 @@ export default function Hero() {
             </div>
 
             <h1 className="text-5xl sm:text-7xl font-bold tracking-tight text-stone-900 dark:text-stone-100">
-              <Typewriter text="Ricardo Alves" speed={100} delay={200} resetKey={language} />
+              <Typewriter text="Ricardo Alves" speed={100} delay={100} resetKey={`${language}-${userName}`} />
             </h1>
             <h2 className="text-2xl sm:text-3xl font-medium bg-gradient-to-r from-sky-500 via-blue-500 to-indigo-500 bg-clip-text text-transparent">
-              <Typewriter text={t.hero.subtitle} speed={50} delay={1500} resetKey={language} />
+              <Typewriter text={t.hero.subtitle} speed={50} delay={1500} resetKey={`${language}-${userName}`} />
             </h2>
+
             <p className="max-w-2xl mx-auto text-lg leading-8 text-stone-600 dark:text-stone-300">
               {t.hero.description}
             </p>

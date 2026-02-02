@@ -74,11 +74,13 @@ export default function Projetos() {
         </p>
       </div>
 
-      <div className="max-w-6xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-8">
+      <div className="max-w-6xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-8">
         {PROJECTS.map((project, index) => (
           <div
             key={index}
-            className="group relative flex flex-col overflow-hidden rounded-3xl bg-white/50 dark:bg-stone-900/50 border border-stone-200/50 dark:border-stone-700/50 backdrop-blur-sm transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl"
+            className={`group relative flex flex-col overflow-hidden rounded-3xl bg-white/50 dark:bg-stone-900/50 border border-stone-200/50 dark:border-stone-700/50 backdrop-blur-sm transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl ${
+              index === 0 || index === 3 ? "md:col-span-2" : "md:col-span-1"
+            }`}
           >
             {/* Área da Imagem/Gradiente */}
             <div className="h-48 w-full relative overflow-hidden">
