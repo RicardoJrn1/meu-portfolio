@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef, useState } from "react";
 import {
   SiNextdotjs,
   SiJavascript,
@@ -17,21 +17,37 @@ type Skill = {
   color: string;
 };
 
-const SkillCard = ({ name, icon: Icon, color }: Skill) => (
-  <div
-    className="group relative flex flex-col items-center justify-center gap-4 p-6 rounded-2xl bg-white/50 dark:bg-stone-800/50 border border-stone-200/50 dark:border-stone-700/50 hover:bg-white dark:hover:bg-stone-800 transition-all duration-300 hover:-translate-y-2 hover:shadow-xl backdrop-blur-sm"
-    style={{ "--skill-color": color } as React.CSSProperties}
-  >
-    <div className="absolute inset-0 rounded-2xl transition-opacity duration-300 opacity-0 group-hover:opacity-100 shadow-[0_10px_30px_-10px_var(--skill-color)]" />
-    <Icon
-      className="w-12 h-12 transition-transform duration-300 group-hover:scale-110 relative z-10"
-      style={{ color: color }}
-    />
-    <span className="text-sm font-semibold text-stone-600 dark:text-stone-400 group-hover:text-stone-900 dark:group-hover:text-stone-100 transition-colors relative z-10">
-      {name}
-    </span>
-  </div>
-);
+const SkillCard = ({ name, icon: Icon, color }: Skill) => {
+  const divRef = useRef<HTMLDivElement>(null);
+  const [position, setPosition] = useState({ x: 0, y: 0 });
+  const [opacity, setOpacity] = useState(0);
+
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    if (!divRef.current) return;
+    const rect = divRef.current.getBoundingClientRect();
+    setPosition({ x: e.clientX - rect.left, y: e.clientY - rect.top });
+  };
+
+  return (
+    <div
+      ref={divRef}
+      onMouseMove={handleMouseMove}
+      onMouseEnter={() => setOpacity(1)}
+      onMouseLeave={() => setOpacity(0)}
+      className="group relative flex flex-col items-center justify-center gap-4 p-6 rounded-2xl bg-white/50 dark:bg-stone-800/50 border border-stone-200/50 dark:border-stone-700/50 transition-all duration-300 hover:-translate-y-2 hover:shadow-xl backdrop-blur-sm overflow-hidden"
+    >
+      <div
+        className="pointer-events-none absolute -inset-px transition duration-300"
+        style={{
+          opacity,
+          background: `radial-gradient(600px circle at ${position.x}px ${position.y}px, ${color}15, transparent 40%)`,
+        }}
+      />
+      <Icon className="w-12 h-12 transition-transform duration-300 group-hover:scale-110 relative z-10" style={{ color }} />
+      <span className="text-sm font-semibold text-stone-600 dark:text-stone-400 group-hover:text-stone-900 dark:group-hover:text-stone-100 transition-colors relative z-10">{name}</span>
+    </div>
+  );
+};
 
 const FRONTEND_SKILLS: Skill[] = [
   { name: "Next.js", icon: SiNextdotjs, color: "#000000" },

@@ -1,9 +1,10 @@
 import React from "react";
 import { SiGithub, SiLinkedin } from "react-icons/si";
 import { useLanguage } from "@/components/Linguagem";
+import Typewriter from "@/components/Typewriter";
 
 export default function Hero() {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
 
   const handleScroll = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
     e.preventDefault();
@@ -31,10 +32,10 @@ export default function Hero() {
             </div>
 
             <h1 className="text-5xl sm:text-7xl font-bold tracking-tight text-stone-900 dark:text-stone-100">
-              Ricardo Alves
+              <Typewriter text="Ricardo Alves" speed={100} delay={200} resetKey={language} />
             </h1>
             <h2 className="text-2xl sm:text-3xl font-medium bg-gradient-to-r from-sky-500 via-blue-500 to-indigo-500 bg-clip-text text-transparent">
-              {t.hero.subtitle}
+              <Typewriter text={t.hero.subtitle} speed={50} delay={1500} resetKey={language} />
             </h2>
             <p className="max-w-2xl mx-auto text-lg leading-8 text-stone-600 dark:text-stone-300">
               {t.hero.description}

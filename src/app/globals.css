@@ -40,3 +40,8 @@ body {
     transform: translateY(0);
   }
 }
+
+.retroFont {
+  font-family: var(--font-retro), system-ui, -apple-system, Segoe UI, Roboto, Arial,
+    sans-serif;
+}

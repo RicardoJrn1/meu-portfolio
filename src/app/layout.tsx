@@ -84,8 +84,8 @@ export default function RootLayout({
 
   return (
     <html lang="pt-BR">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-background-main text-foreground`}
+      <body 
+      className={`${geistSans.variable} ${geistMono.variable} antialiased bg-background-main text-foreground`}
       >
         <div className="relative min-h-dvh overflow-hidden">
           {/* Gradiente sutil sobre o fundo principal */}
