@@ -45,10 +45,10 @@ export default function Hero() {
               </div>
 
               <h1 className="text-5xl sm:text-7xl font-bold tracking-tight text-stone-900 dark:text-stone-100">
-                <Typewriter text="Ricardo Alves" speed={100} delay={100} resetKey={`${language}-${userName}`} />
+                <Typewriter key={`name-${language}-${userName}`} text="Ricardo Alves" speed={100} delay={100} />
               </h1>
               <h2 className="text-2xl sm:text-3xl font-medium bg-gradient-to-r from-sky-500 via-blue-500 to-indigo-500 bg-clip-text text-transparent">
-                <Typewriter text={t.hero.subtitle} speed={50} delay={1500} resetKey={`${language}-${userName}`} />
+                <Typewriter key={`subtitle-${language}-${userName}`} text={t.hero.subtitle} speed={50} delay={1500} />
               </h2>
 
               <p className="max-w-2xl text-lg leading-8 text-stone-600 dark:text-stone-300 mx-auto lg:mx-0">
