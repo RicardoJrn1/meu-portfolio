@@ -14,9 +14,9 @@ export const translations = {
     },
     hero: {
       badge: "Sobre mim",
-      subtitle: "Desenvolvedor Web Full Stack",
+      subtitle: "Desenvolvedor Full Stack",
       welcome_user: "Olá, {name}. Fique à vontade para conhecer um pouco do meu trabalho.",
-      description: "Sou desenvolvedor web full-stack com foco em front-end, com 3 anos de experiência na área de tecnologia. Trabalhei no Imazon, onde atuei no desenvolvimento de sistemas administrativos. Além disso, sou freelancer na empresa NoBuggy, especializada em soluções tecnológicas completas.",
+      description: "Sou desenvolvedor full-stack com foco em front-end, com 3 anos de experiência na área de tecnologia. Trabalhei no Imazon, onde atuei no desenvolvimento de sistemas administrativos. Além disso, sou freelancer na empresa NoBuggy, especializada em soluções tecnológicas completas.",
       cta_projects: "Ver Projetos",
       cta_contact: "Fale Comigo",
     },
@@ -104,9 +104,9 @@ export const translations = {
     },
     hero: {
       badge: "About Me",
-      subtitle: "Full Stack Web Developer",
+      subtitle: "Full Stack Developer",
       welcome_user: "Hello, {name}. Feel free to explore my work.",
-      description: "I am a full-stack web developer focused on front-end, with 3 years of experience in the tech industry. I worked at Imazon, developing administrative systems. Additionally, I am a freelancer at NoBuggy, specializing in complete technological solutions.",
+      description: "I am a full-stack developer focused on front-end, with 3 years of experience in the tech industry. I worked at Imazon, developing administrative systems. Additionally, I am a freelancer at NoBuggy, specializing in complete technological solutions.",
       cta_projects: "View Projects",
       cta_contact: "Contact Me",
     },
