@@ -1,5 +1,5 @@
 import React from "react";
-import { SiGithub, SiLinkedin, SiNextdotjs, SiReact, SiTypescript, SiNodedotjs } from "react-icons/si";
+import { SiGithub, SiLinkedin, SiNextdotjs, SiReact, SiTypescript, SiJavascript } from "react-icons/si";
 import { useLanguage } from "@/components/Linguagem";
 import Typewriter from "@/components/Typewriter";
 import { useUser } from "@/components/UserContext";
@@ -140,25 +140,41 @@ export default function Hero() {
                   {language === "pt" ? "Stack Principal" : "Main Stack"}
                 </p>
                 <div className="flex justify-between items-center">
-                  <div className="group flex flex-col items-center gap-2 transition-transform hover:-translate-y-1">
+                  <div className="group relative flex flex-col items-center gap-2 transition-transform hover:-translate-y-1">
                     <div className="p-2.5 rounded-xl bg-stone-100 dark:bg-stone-800 text-stone-900 dark:text-stone-100 shadow-sm group-hover:shadow-md transition-all">
                       <SiNextdotjs size={24} />
                     </div>
+                    <span className="absolute -top-12 left-1/2 -translate-x-1/2 px-3 py-1.5 bg-stone-900 dark:bg-stone-100 text-white dark:text-stone-900 text-xs font-semibold rounded-lg opacity-0 group-hover:opacity-100 transition-all duration-300 translate-y-2 group-hover:translate-y-0 shadow-xl whitespace-nowrap pointer-events-none z-20">
+                      Next.js
+                      <span className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-2.5 h-2.5 bg-stone-900 dark:bg-stone-100 rotate-45 -z-10"></span>
+                    </span>
                   </div>
-                  <div className="group flex flex-col items-center gap-2 transition-transform hover:-translate-y-1">
+                  <div className="group relative flex flex-col items-center gap-2 transition-transform hover:-translate-y-1">
                     <div className="p-2.5 rounded-xl bg-stone-100 dark:bg-stone-800 text-[#3178C6] shadow-sm group-hover:shadow-md transition-all">
                       <SiTypescript size={24} />
                     </div>
+                    <span className="absolute -top-12 left-1/2 -translate-x-1/2 px-3 py-1.5 bg-stone-900 dark:bg-stone-100 text-white dark:text-stone-900 text-xs font-semibold rounded-lg opacity-0 group-hover:opacity-100 transition-all duration-300 translate-y-2 group-hover:translate-y-0 shadow-xl whitespace-nowrap pointer-events-none z-20">
+                      TypeScript
+                      <span className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-2.5 h-2.5 bg-stone-900 dark:bg-stone-100 rotate-45 -z-10"></span>
+                    </span>
                   </div>
-                  <div className="group flex flex-col items-center gap-2 transition-transform hover:-translate-y-1">
+                  <div className="group relative flex flex-col items-center gap-2 transition-transform hover:-translate-y-1">
                     <div className="p-2.5 rounded-xl bg-stone-100 dark:bg-stone-800 text-[#61DAFB] shadow-sm group-hover:shadow-md transition-all">
                       <SiReact size={24} />
                     </div>
+                    <span className="absolute -top-12 left-1/2 -translate-x-1/2 px-3 py-1.5 bg-stone-900 dark:bg-stone-100 text-white dark:text-stone-900 text-xs font-semibold rounded-lg opacity-0 group-hover:opacity-100 transition-all duration-300 translate-y-2 group-hover:translate-y-0 shadow-xl whitespace-nowrap pointer-events-none z-20">
+                      React
+                      <span className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-2.5 h-2.5 bg-stone-900 dark:bg-stone-100 rotate-45 -z-10"></span>
+                    </span>
                   </div>
-                  <div className="group flex flex-col items-center gap-2 transition-transform hover:-translate-y-1">
+                  <div className="group relative flex flex-col items-center gap-2 transition-transform hover:-translate-y-1">
                     <div className="p-2.5 rounded-xl bg-stone-100 dark:bg-stone-800 text-[#339933] shadow-sm group-hover:shadow-md transition-all">
-                      <SiNodedotjs size={24} />
+                      <SiJavascript size={24} />
                     </div>
+                    <span className="absolute -top-12 left-1/2 -translate-x-1/2 px-3 py-1.5 bg-stone-900 dark:bg-stone-100 text-white dark:text-stone-900 text-xs font-semibold rounded-lg opacity-0 group-hover:opacity-100 transition-all duration-300 translate-y-2 group-hover:translate-y-0 shadow-xl whitespace-nowrap pointer-events-none z-20">
+                      JavaScript
+                      <span className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-2.5 h-2.5 bg-stone-900 dark:bg-stone-100 rotate-45 -z-10"></span>
+                    </span>
                   </div>
                 </div>
               </div>
