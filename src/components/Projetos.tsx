@@ -1,7 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import Image from "next/image";
 import { SiGithub } from "react-icons/si";
-import { FaExternalLinkAlt, FaGoogleDrive } from "react-icons/fa";
+import { FaExternalLinkAlt, FaGoogleDrive, FaArrowRight } from "react-icons/fa";
 import { useLanguage } from "@/components/Linguagem";
 
 interface Project {
@@ -60,6 +60,11 @@ const PROJECTS: Project[] = [
 
 export default function Projetos() {
   const { t, language } = useLanguage();
+  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
+
+  const featuredProject = PROJECTS[0];
+  const otherProjects = PROJECTS.slice(1);
+
   return (
     <div id="projetos" className="scroll-target mt-20">
       <div className="text-center mb-16">
@@ -74,12 +79,106 @@ export default function Projetos() {
         </p>
       </div>
 
-      <div className="max-w-6xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-8">
-        {PROJECTS.map((project, index) => (
+      <div className="max-w-6xl mx-auto px-6">
+        {/* Featured Project */}
+        <div
+          onMouseEnter={() => setHoveredIndex(0)}
+          onMouseLeave={() => setHoveredIndex(null)}
+          className={`group relative grid grid-cols-1 lg:grid-cols-2 gap-8 rounded-3xl bg-white/50 dark:bg-stone-900/50 border border-stone-200/50 dark:border-stone-700/50 backdrop-blur-sm p-6 lg:p-8 transition-all duration-300 mb-12 ${
+            hoveredIndex !== null && hoveredIndex !== 0
+              ? "opacity-40 scale-[0.98] blur-[2px] grayscale"
+              : "hover:shadow-2xl hover:-translate-y-1"
+          }`}
+        >
+          {/* Image Side */}
+          <div className="relative h-64 lg:h-full min-h-[300px] w-full overflow-hidden rounded-2xl">
+            {featuredProject.image ? (
+              <Image
+                src={featuredProject.image}
+                alt={featuredProject.title}
+                fill
+                className="object-cover transition-transform duration-700 group-hover:scale-105"
+              />
+            ) : (
+              <div className={`h-full w-full bg-gradient-to-br ${featuredProject.gradient}`} />
+            )}
+            <div className="absolute top-4 left-4 px-3 py-1 bg-stone-900/80 backdrop-blur-md text-white text-xs font-bold uppercase tracking-wider rounded-full">
+              {t.projects.featured.label}
+            </div>
+          </div>
+
+          {/* Info Side */}
+          <div className="flex flex-col justify-center">
+            <div className="flex items-center justify-between mb-4">
+              <h3 className="text-3xl font-bold text-stone-900 dark:text-stone-100">
+                {featuredProject.title}
+              </h3>
+              <div className="flex gap-3">
+                {featuredProject.links.github && (
+                  <a
+                    href={featuredProject.links.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-stone-500 hover:text-stone-900 dark:hover:text-stone-100 transition-colors"
+                  >
+                    <SiGithub size={24} />
+                  </a>
+                )}
+              </div>
+            </div>
+
+            <div className="space-y-4 mb-8">
+              <div>
+                <p className="text-xs font-bold text-sky-600 dark:text-sky-400 uppercase tracking-wider mb-1">
+                  {t.projects.featured.problem_label}
+                </p>
+                <p className="text-stone-600 dark:text-stone-300 text-sm leading-relaxed">
+                  {t.projects.featured.desc_problem}
+                </p>
+              </div>
+              <div>
+                <p className="text-xs font-bold text-emerald-600 dark:text-emerald-400 uppercase tracking-wider mb-1">
+                  {t.projects.featured.solution_label}
+                </p>
+                <p className="text-stone-600 dark:text-stone-300 text-sm leading-relaxed">
+                  {t.projects.featured.desc_solution}
+                </p>
+              </div>
+            </div>
+
+            <div className="flex flex-wrap gap-2 mb-8">
+              {featuredProject.tags.map((tag) => (
+                <span key={tag} className="px-3 py-1 text-xs font-medium rounded-full bg-stone-100 dark:bg-stone-800 text-stone-600 dark:text-stone-300 border border-stone-200 dark:border-stone-700">
+                  {tag}
+                </span>
+              ))}
+            </div>
+
+            <a
+              href={featuredProject.links.demo}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 text-sm font-bold text-stone-900 dark:text-stone-100 hover:text-sky-600 dark:hover:text-sky-400 transition-colors group/link"
+            >
+              {t.projects.featured.cta}
+              <FaArrowRight className="transition-transform group-hover/link:translate-x-1" />
+            </a>
+          </div>
+        </div>
+
+        {/* Grid for Other Projects */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {otherProjects.map((project, i) => {
+            const index = i + 1; // Adjust index to match original array for translations
+            return (
           <div
             key={index}
-            className={`group relative flex flex-col overflow-hidden rounded-3xl bg-white/50 dark:bg-stone-900/50 border border-stone-200/50 dark:border-stone-700/50 backdrop-blur-sm transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl ${
-              index === 0 || index === 3 ? "md:col-span-2" : "md:col-span-1"
+            onMouseEnter={() => setHoveredIndex(index)}
+            onMouseLeave={() => setHoveredIndex(null)}
+            className={`group relative flex flex-col overflow-hidden rounded-3xl bg-white/50 dark:bg-stone-900/50 border border-stone-200/50 dark:border-stone-700/50 backdrop-blur-sm transition-all duration-300 ${
+              hoveredIndex !== null && hoveredIndex !== index
+                ? "opacity-40 scale-[0.98] blur-[2px] grayscale"
+                : "hover:-translate-y-2 hover:shadow-2xl"
             }`}
           >
             {/* Área da Imagem/Gradiente */}
@@ -145,7 +244,9 @@ export default function Projetos() {
               </div>
             </div>
           </div>
-        ))}
+            );
+          })}
+        </div>
       </div>
 
       <div className="mt-16 flex justify-center">

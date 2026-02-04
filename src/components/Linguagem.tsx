@@ -64,6 +64,14 @@ export const translations = {
       description: "Aqui estão alguns dos projetos que desenvolvi, demonstrando minhas habilidades em resolver problemas reais.",
       view_code: "Ver Código",
       view_demo: "Ver Demo",
+      featured: {
+        label: "Destaque",
+        cta: "Ver Case",
+        problem_label: "O Desafio",
+        solution_label: "O que fiz",
+        desc_problem: "Modernizar a presença digital de uma empresa tradicional, criando um catálogo online acessível.",
+        desc_solution: "Desenvolvi uma plataforma performática com Next.js, focada em SEO e experiência do usuário."
+      },
       items: [
         "Uma empresa resposavel por venda e conserto de moveis e equipamentos de escritorio de alta qualidade.",
         "Um site de uma empresa que faz assessoria empresarial para pequenas e medias empresas.",
@@ -163,6 +171,14 @@ export const translations = {
       description: "Here are some of the projects I developed, demonstrating my skills in solving real-world problems.",
       view_code: "View Code",
       view_demo: "View Demo",
+      featured: {
+        label: "Featured",
+        cta: "View Case",
+        problem_label: "The Challenge",
+        solution_label: "What I did",
+        desc_problem: "Modernize the digital presence of a traditional company, creating an accessible online catalog.",
+        desc_solution: "I developed a high-performance platform with Next.js, focused on SEO and user experience."
+      },
       items: [
         "A company responsible for the sale and repair of high-quality office furniture and equipment.",
         "A website for a company providing business consulting for small and medium-sized enterprises.",
