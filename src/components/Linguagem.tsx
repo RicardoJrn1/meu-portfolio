@@ -24,7 +24,16 @@ export const translations = {
       badge: "Minhas Habilidades",
       title: "Skills",
       frontend: "Frontend",
-      backend: "Backend & Ferramentas",
+      backend: "Backend",
+      tools: "Ferramentas",
+      extras: "Extras",
+      status: {
+        daily: "Diário",
+        focus: "Foco atual",
+        used: "Tenho experiência",
+        learning: "Estudando"
+      },
+      used_in: "Usado em:"
     },
     experience: {
       badge: "Minha Jornada",
@@ -36,11 +45,11 @@ export const translations = {
       completed: "Concluído",
       jobs: {
         nobuggy: {
-          role: "Desenvolvedor Full Stack",
+          role: "Desenvolvedor Front-end",
           desc: "Atuação no desenvolvimento de soluções tecnológicas completas, focando em entregas de alta qualidade e performance.",
         },
         imazon: {
-          role: "Desenvolvedor de Sistemas",
+          role: "Desenvolvedor Full Stack",
           desc: "Desenvolvimento e manutenção de sistemas administrativos, contribuindo para a eficiência dos processos internos.",
         },
         university: {
@@ -114,7 +123,16 @@ export const translations = {
       badge: "My Skills",
       title: "Skills",
       frontend: "Frontend",
-      backend: "Backend & Tools",
+      backend: "Backend",
+      tools: "Tools",
+      extras: "Extras",
+      status: {
+        daily: "Daily",
+        focus: "Current Focus",
+        used: "I have experience",
+        learning: "Learning"
+      },
+      used_in: "Used in:"
     },
     experience: {
       badge: "My Journey",
@@ -126,11 +144,11 @@ export const translations = {
       completed: "Completed",
       jobs: {
         nobuggy: {
-          role: "Full Stack Developer",
+          role: "Front-end Developer",
           desc: "Development of complete technological solutions, focusing on high-quality delivery and performance.",
         },
         imazon: {
-          role: "Systems Developer",
+          role: "Full Stack Developer",
           desc: "Development and maintenance of administrative systems, contributing to the efficiency of internal processes.",
         },
         university: {
