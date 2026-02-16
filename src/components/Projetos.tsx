@@ -31,7 +31,7 @@ const PROJECTS: Project[] = [
     tags: ["Next.js", "TypeScript", "Tailwind"],
     links: {
       github: "https://github.com/RicardoJrn1/assessoria-74",
-      demo: "https://assessoria-74.vercel.app",
+      demo: "https://assessoria74.com",
     },
     gradient: "from-emerald-500 to-teal-500",
     image: "/assessoria74.png",
@@ -84,11 +84,10 @@ export default function Projetos() {
         <div
           onMouseEnter={() => setHoveredIndex(0)}
           onMouseLeave={() => setHoveredIndex(null)}
-          className={`group relative grid grid-cols-1 lg:grid-cols-2 gap-8 rounded-3xl bg-white/50 dark:bg-stone-900/50 border border-stone-200/50 dark:border-stone-700/50 backdrop-blur-sm p-6 lg:p-8 transition-all duration-300 mb-12 ${
-            hoveredIndex !== null && hoveredIndex !== 0
+          className={`group relative grid grid-cols-1 lg:grid-cols-2 gap-8 rounded-3xl bg-white/50 dark:bg-stone-900/50 border border-stone-200/50 dark:border-stone-700/50 backdrop-blur-sm p-6 lg:p-8 transition-all duration-300 mb-12 ${hoveredIndex !== null && hoveredIndex !== 0
               ? "opacity-40 scale-[0.98] blur-[2px] grayscale"
               : "hover:shadow-2xl hover:-translate-y-1"
-          }`}
+            }`}
         >
           {/* Image Side */}
           <div className="relative h-64 lg:h-full min-h-[300px] w-full overflow-hidden rounded-2xl">
@@ -171,79 +170,78 @@ export default function Projetos() {
           {otherProjects.map((project, i) => {
             const index = i + 1; // Adjust index to match original array for translations
             return (
-          <div
-            key={index}
-            onMouseEnter={() => setHoveredIndex(index)}
-            onMouseLeave={() => setHoveredIndex(null)}
-            className={`group relative flex flex-col overflow-hidden rounded-3xl bg-white/50 dark:bg-stone-900/50 border border-stone-200/50 dark:border-stone-700/50 backdrop-blur-sm transition-all duration-300 ${
-              hoveredIndex !== null && hoveredIndex !== index
-                ? "opacity-40 scale-[0.98] blur-[2px] grayscale"
-                : "hover:-translate-y-2 hover:shadow-2xl"
-            }`}
-          >
-            {/* Área da Imagem/Gradiente */}
-            <div className="h-48 w-full relative overflow-hidden">
-              {project.image ? (
-                <Image
-                  src={project.image}
-                  alt={project.title}
-                  fill
-                  className="object-cover transition-transform duration-500 group-hover:scale-110"
-                />
-              ) : (
-                <div className={`h-full w-full bg-gradient-to-br ${project.gradient} opacity-80 group-hover:opacity-100 transition-opacity duration-500`} />
-              )}
-              <div className="absolute inset-0 bg-white/10 mix-blend-overlay opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-            </div>
+              <div
+                key={index}
+                onMouseEnter={() => setHoveredIndex(index)}
+                onMouseLeave={() => setHoveredIndex(null)}
+                className={`group relative flex flex-col overflow-hidden rounded-3xl bg-white/50 dark:bg-stone-900/50 border border-stone-200/50 dark:border-stone-700/50 backdrop-blur-sm transition-all duration-300 ${hoveredIndex !== null && hoveredIndex !== index
+                    ? "opacity-40 scale-[0.98] blur-[2px] grayscale"
+                    : "hover:-translate-y-2 hover:shadow-2xl"
+                  }`}
+              >
+                {/* Área da Imagem/Gradiente */}
+                <div className="h-48 w-full relative overflow-hidden">
+                  {project.image ? (
+                    <Image
+                      src={project.image}
+                      alt={project.title}
+                      fill
+                      className="object-cover transition-transform duration-500 group-hover:scale-110"
+                    />
+                  ) : (
+                    <div className={`h-full w-full bg-gradient-to-br ${project.gradient} opacity-80 group-hover:opacity-100 transition-opacity duration-500`} />
+                  )}
+                  <div className="absolute inset-0 bg-white/10 mix-blend-overlay opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                </div>
 
-            {/* Conteúdo */}
-            <div className="flex flex-col flex-1 p-8">
-              <div className="flex items-center justify-between mb-4">
-                <h3 className="text-2xl font-bold text-stone-900 dark:text-stone-100 group-hover:text-sky-600 dark:group-hover:text-sky-400 transition-colors">
-                  {project.title}
-                </h3>
-                <div className="flex gap-3">
-                  {project.links.github && (
-                    <a
-                      href={project.links.github}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-stone-500 hover:text-stone-900 dark:hover:text-stone-100 transition-colors hover:scale-110"
-                      title={t.projects.view_code}
-                    >
-                      <SiGithub className="w-6 h-6" />
-                    </a>
-                  )}
-                  {project.links.demo && (
-                    <a
-                      href={project.links.demo}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-stone-500 hover:text-stone-900 dark:hover:text-stone-100 transition-colors hover:scale-110"
-                      title={t.projects.view_demo}
-                    >
-                      <FaExternalLinkAlt className="w-5 h-5" />
-                    </a>
-                  )}
+                {/* Conteúdo */}
+                <div className="flex flex-col flex-1 p-8">
+                  <div className="flex items-center justify-between mb-4">
+                    <h3 className="text-2xl font-bold text-stone-900 dark:text-stone-100 group-hover:text-sky-600 dark:group-hover:text-sky-400 transition-colors">
+                      {project.title}
+                    </h3>
+                    <div className="flex gap-3">
+                      {project.links.github && (
+                        <a
+                          href={project.links.github}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-stone-500 hover:text-stone-900 dark:hover:text-stone-100 transition-colors hover:scale-110"
+                          title={t.projects.view_code}
+                        >
+                          <SiGithub className="w-6 h-6" />
+                        </a>
+                      )}
+                      {project.links.demo && (
+                        <a
+                          href={project.links.demo}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-stone-500 hover:text-stone-900 dark:hover:text-stone-100 transition-colors hover:scale-110"
+                          title={t.projects.view_demo}
+                        >
+                          <FaExternalLinkAlt className="w-5 h-5" />
+                        </a>
+                      )}
+                    </div>
+                  </div>
+
+                  <p className="text-stone-600 dark:text-stone-300 mb-6 leading-relaxed flex-1">
+                    {t.projects.items[index]}
+                  </p>
+
+                  <div className="flex flex-wrap gap-2 mt-auto">
+                    {project.tags.map((tag) => (
+                      <span
+                        key={tag}
+                        className="px-3 py-1 text-xs font-medium rounded-full bg-stone-100 dark:bg-stone-800 text-stone-600 dark:text-stone-300 border border-stone-200 dark:border-stone-700"
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
                 </div>
               </div>
-
-              <p className="text-stone-600 dark:text-stone-300 mb-6 leading-relaxed flex-1">
-                {t.projects.items[index]}
-              </p>
-
-              <div className="flex flex-wrap gap-2 mt-auto">
-                {project.tags.map((tag) => (
-                  <span
-                    key={tag}
-                    className="px-3 py-1 text-xs font-medium rounded-full bg-stone-100 dark:bg-stone-800 text-stone-600 dark:text-stone-300 border border-stone-200 dark:border-stone-700"
-                  >
-                    {tag}
-                  </span>
-                ))}
-              </div>
-            </div>
-          </div>
             );
           })}
         </div>
